@@ -1,0 +1,12 @@
+services:
+  postgres:
+    image: postgres:17.4-bookworm
+    restart: always
+    # set shared memory limit when using docker-compose
+    shm_size: 128mb
+    environment:
+      - 'POSTGRES_DB=couverdb'
+      - 'POSTGRES_PASSWORD=password'
+      - 'POSTGRES_USER=root'
+    ports:
+      - '5070:5432'
